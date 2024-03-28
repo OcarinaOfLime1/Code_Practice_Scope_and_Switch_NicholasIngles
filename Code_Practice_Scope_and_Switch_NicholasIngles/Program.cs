@@ -33,12 +33,14 @@ switch (UserInput1)
             if (UserInput2 == answer1)
             {
                 Console.WriteLine("\nCorrect");
+                Correct++;
             }
             else
             {
                 Console.WriteLine("\nIncorrect");
                 Console.WriteLine("Answer: " + answer1);
             }
+            Total++;
         }
         catch
         {
@@ -55,19 +57,21 @@ switch (UserInput1)
         Division:
         try
         {
-            Console.WriteLine("If you have " + num5 + " tickets for the fair and each ride costs " + num4 + " tickets, how many rides can you go on?");
+            Console.WriteLine("\nIf you have " + num5 + " tickets for the fair and each ride costs " + num4 + " tickets, how many rides can you go on?");
             Console.Write("Your answer: ");
             int UserInput3 = int.Parse(Console.ReadLine());
 
             if (UserInput3 == answer2)
             {
                 Console.WriteLine("\nCorrect");
+                Correct++;
             }
             else
             {
                 Console.WriteLine("\nIncorrect");
                 Console.WriteLine("Answer: " + answer2);
             }
+            Total++;
         }
         catch
         {
@@ -78,7 +82,6 @@ switch (UserInput1)
 
     case "3":
         goto Exit;
-
         break;
 
     default:
@@ -88,6 +91,11 @@ switch (UserInput1)
 goto Menu;
 
 Exit:
-double Percent = (Correct / Total) * 100;
-Console.WriteLine("\nCongrats, you got " + Correct + " questions correct.");
-Console.WriteLine(Percent + "% success rate.");
+if (Correct != 0)
+{
+    Console.WriteLine("\nCongrats, you got " + Correct + " questions correct out of " + Total + ".");
+}
+else
+{
+    Console.WriteLine("\nProgram exited.");
+}
